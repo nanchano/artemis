@@ -25,9 +25,6 @@ delete-event:
 all-requests:
 	make create-event && make get-event && make update-event && make delete-event
 
-test:
-	coverage run -m pytest
-
 dependencies:
 	poetry install --no-interaction --no-root
 
