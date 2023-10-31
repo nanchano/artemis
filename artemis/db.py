@@ -5,7 +5,7 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sess
 
 from artemis.schemas import CreateEvent, Event, UpdateEvent
 
-DATABASE_URL = "sqlite:///events.db"
+DATABASE_URL = "sqlite:///events.db?_journal=WAL&_timeout=5000&_fk=true"
 engine = create_engine(DATABASE_URL)
 
 
