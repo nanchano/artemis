@@ -3,7 +3,7 @@ Python service developed following a simple architecture. Centered around the co
 
 This is a simple rewrite of the very same Go [service](https://github.com/nanchano/bastet), with the intention of keeping it simpler and to provide a Python & ORM example. 
 
-To test the server: `make test-all`
+To test the server: `make all-requests`
 
 To test the code: `make test`
 
