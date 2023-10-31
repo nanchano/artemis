@@ -1,0 +1,38 @@
+name: Validate
+
+on:
+  pull_request:
+    branches:
+      - "main"
+
+jobs:
+  validatecomposer:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python 3.12.0
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12.0
+
+      - uses: snok/install-poetry@v1
+        with:
+          version: 1.6.1
+          virtualenvs-create: false
+
+      - name: Install dependencies
+        run: |
+          make dependencies
+
+      - name: Lint with flake8
+        run: |
+          make lint
+
+      - name: Format with black and isort
+        run: |
+          make fmt
+
+      - name: Run tests
+        run: |
+          make test
