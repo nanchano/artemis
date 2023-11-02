@@ -1,7 +1,5 @@
 from datetime import datetime, timedelta
 
-import pytest
-from fastapi import HTTPException
 from fastapi.testclient import TestClient
 from sqlalchemy import StaticPool, create_engine
 from sqlalchemy.orm import sessionmaker
@@ -145,7 +143,6 @@ def test_delete_event():
     data = response.json()
     assert data["id"] == event_id
 
-    # Try to get the deleted event
     response = client.get(f"/events/{event_id}")
     assert response.status_code == 404, response.text
 
